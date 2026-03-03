@@ -1,0 +1,1 @@
+"use strict";var Translator;(self.webpackChunkstorefront=self.webpackChunkstorefront||[]).push([[874],{1550:(r,a,t)=>{t.d(a,{default:()=>e});var s=t(7660);const e=t.n(s)()}},r=>{r.O(0,[502],(()=>{return a=1550,r(r.s=a);var a}));var a=r.O();Translator=a.default}]);

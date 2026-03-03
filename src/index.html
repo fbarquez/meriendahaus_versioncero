@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merienda Haus | Berlin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="is-locked">
+
+    <!-- 1. Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-content">
+            <img src="assets/logos/oval_blue.png" alt="Merienda Haus" class="splash-logo">
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <p class="loading-text" id="loading-text">¡Hola!</p>
+        </div>
+    </div>
+
+    <!-- 2. Effects Overlay -->
+    <div class="grain-overlay"></div>
+    <div class="ambient-bg"></div>
+
+    <!-- 3. Navigation -->
+    <header class="main-nav">
+        <div class="nav-left">
+            <img src="assets/logos/logo_blue.png" alt="Merienda Haus" class="nav-logo">
+        </div>
+        <div class="nav-right">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- 4. Side Menu Drawer -->
+    <div class="side-menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <button class="close-menu" id="close-menu">&times;</button>
+        
+        <div class="menu-content">
+            <div class="menu-header">
+                <img src="assets/logos/oval_blue.png" alt="Logo" class="menu-mini-logo">
+                <div>
+                    <h3>Merienda Haus</h3>
+                    <p>Berlin Schöneberg</p>
+                </div>
+            </div>
+
+            <!-- Language Switcher INSIDE Menu -->
+            <div class="menu-section">
+                <h4 data-t="language_title">Language</h4>
+                <div class="lang-switcher-menu" id="lang-switcher">
+                    <span data-lang="ES">ES</span>
+                    <span data-lang="DE">DE</span>
+                    <span data-lang="EN" class="active">EN</span>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h4 data-t="opening_hours_title">Opening Hours</h4>
+                <div class="hours-card">
+                    <div class="hour-row"><span>Tue - Sun</span> <strong>09:00 - 18:00</strong></div>
+                    <div class="hour-row closed"><span>Monday</span> <strong>Closed</strong></div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h4 data-t="location_title">Location</h4>
+                <div class="location-card">
+                    <p>Apostel-Paulus-Straße 4<br>10823 Berlin</p>
+                    <a href="https://maps.app.goo.gl/v6XREAnskFrUK6Su9" target="_blank" class="map-btn">Get Directions</a>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h4 data-t="legal_title">Legal & Privacy</h4>
+                <div class="legal-buttons">
+                    <button class="legal-trigger" data-modal="impressum">Impressum</button>
+                    <button class="legal-trigger" data-modal="privacy">Privacy Policy</button>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/meriendahaus/" target="_blank">Instagram</a>
+                    <a href="https://wa.me/491631593783" target="_blank">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Main Dashboard (Bento Grid) -->
+    <main class="bento-container" id="bento-grid">
+        
+        <!-- Hero Cell -->
+        <div class="bento-cell hero-cell">
+            <div class="weather-indicator">
+                <span id="weather-icon">☀️</span> <span id="weather-text">Berlin: --°C</span>
+            </div>
+            <h1 id="hero-title" data-t="hero_title">Home away from home.</h1>
+            <p id="hero-subtitle" data-t="hero_subtitle">Authentic flavours of Argentina & Uruguay in Schöneberg.</p>
+            <div class="status-badge">
+                <span class="pulsing-dot"></span> <span data-t="open_now">Open now</span>
+            </div>
+            <div class="hero-waves">
+                <img src="assets/logos/waves.png" alt="Waves">
+            </div>
+        </div>
+
+        <!-- Visual Cell -->
+        <div class="bento-cell visual-cell">
+            <div class="video-overlay"><h3 data-t="handmade">Handmade from scratch</h3></div>
+            <img src="assets/products/medialunas.png" alt="Medialunas" class="visual-content">
+        </div>
+
+        <!-- Social Cell (Instagram Video Reel) -->
+        <div class="bento-cell social-cell">
+            <div class="story-header">
+                <div class="avatar"><img src="assets/logos/ig_profile_avatar.png" alt="MH"></div>
+                <span>@meriendahaus</span>
+                <span class="live-indicator">REEL</span>
+            </div>
+            <div class="instagram-video-container">
+                <video id="ig-reel" autoplay muted loop playsinline class="reel-video">
+                    <source src="assets/video/ig_reel.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <a href="https://www.instagram.com/meriendahaus/" target="_blank" class="instagram-cta">
+                <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.5 6.5H17.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 2H17C19.7614 2 22 4.23858 22 7V17C22 19.7614 19.7614 22 17 22H7C4.23858 22 2 19.7614 2 17V7C2 4.23858 4.23858 2 7 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-t="follow_ig">Follow on Instagram</span>
+            </a>
+        </div>
+
+        <!-- Info Cell -->
+        <div class="bento-cell info-cell">
+            <h3 class="accent-text" data-t="info_title">What is a Merienda?</h3>
+            <p class="small-text" data-t="info_desc">A small snack between 5 and 7 pm to bridge the time until dinner. Homemade goodness with warm hospitality.</p>
+            <div class="mini-map"><span>Schöneberg</span></div>
+        </div>
+
+        <!-- B2B Cell -->
+        <div class="bento-cell b2b-cell">
+            <div class="b2b-content">
+                <span class="tag-outline" data-t="b2b_tag">B2B & Events</span>
+                <h3 data-t="b2b_title">Bring authentic taste to your office.</h3>
+                <button id="b2b-trigger" class="b2b-link-btn"><span data-t="b2b_cta">Contact Sales</span> →</button>
+            </div>
+            <img src="assets/products/catering_pro.png" alt="Catering" class="b2b-img">
+        </div>
+
+        <!-- Product Cell: Animated Bestseller Loop -->
+        <div class="bento-cell product-cell">
+            <div class="live-status-badge">
+                <span class="badge-icon">🥐</span>
+                <span data-t="fresh_badge">FRESHLY BAKED</span>
+            </div>
+            <div class="product-slider" id="bestseller-slider">
+                <!-- Item 1 -->
+                <div class="product-slide active">
+                    <div class="product-info">
+                        <span class="tag" data-t="tag_bestseller">Bestseller</span>
+                        <h3 data-t="prod_alfajores">Maicena Alfajores</h3>
+                        <div class="price">3.50€</div>
+                    </div>
+                    <img src="assets/products/alfajores.png" alt="Alfajores" class="product-img-mini">
+                </div>
+                <!-- Item 2 -->
+                <div class="product-slide">
+                    <div class="product-info">
+                        <span class="tag" data-t="tag_classic">Tradition</span>
+                        <h3 data-t="prod_medialunas">Butter Medialunas</h3>
+                        <div class="price">2.50€</div>
+                    </div>
+                    <img src="assets/products/medialunas.png" alt="Medialunas" class="product-img-mini">
+                </div>
+                <!-- Item 3 -->
+                <div class="product-slide">
+                    <div class="product-info">
+                        <span class="tag" data-t="tag_favorite">Favorites</span>
+                        <h3 data-t="prod_chocotorta">Chocotorta Cake</h3>
+                        <div class="price">4.50€</div>
+                    </div>
+                    <img src="assets/products/chocotorta.png" alt="Chocotorta" class="product-img-mini">
+                </div>
+            </div>
+            <button class="add-btn">+</button>
+        </div>
+    </main>
+
+    <!-- 6. Modals Overlay -->
+    <!-- B2B Modal -->
+    <div class="modal-overlay" id="b2b-modal">
+        <div class="modal-card b2b-modal-card">
+            <button class="close-modal" id="close-b2b">&times;</button>
+            <div class="modal-header">
+                <span class="modal-tag">Partnerships</span>
+                <h2 data-t="modal_title">B2B & Catering Inquiry</h2>
+                <p data-t="modal_subtitle">Elevate your events with the authentic Merienda experience.</p>
+            </div>
+            <form id="b2b-form" class="premium-form">
+                <div class="form-row">
+                    <div class="form-group"><label>Full Name</label><input type="text" required></div>
+                    <div class="form-group"><label>Company</label><input type="text" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Email</label><input type="email" required></div>
+                    <div class="form-group"><label>Date</label><input type="date" required></div>
+                </div>
+                <div class="form-group"><label>Message</label><textarea rows="3"></textarea></div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+            <div id="form-success" class="form-feedback" style="display: none;"><div class="success-icon">✓</div><h3>Sent!</h3></div>
+        </div>
+    </div>
+
+    <!-- Legal Modal -->
+    <div class="modal-overlay" id="legal-modal">
+        <div class="modal-card legal-card">
+            <button class="close-modal" id="close-legal">&times;</button>
+            <div id="legal-content-container"></div>
+        </div>
+    </div>
+
+    <!-- 7. Floating UI -->
+    <a href="https://wolt.com/de/deu/berlin/restaurant/merienda-haus" target="_blank" class="wolt-island-link">
+        <div class="wolt-island" id="wolt-island">
+            <div class="wolt-logo">W</div>
+            <div class="wolt-status">
+                <span class="delivery-time">25 min</span>
+                <span class="delivery-text" data-t="delivery">Wolt Delivery</span>
+            </div>
+        </div>
+    </a>
+
+    <div class="sticky-actions">
+        <a href="https://wa.me/491631593783" target="_blank" class="action-btn whatsapp-btn" aria-label="WhatsApp">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.353-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.131.57-.074 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.87 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
