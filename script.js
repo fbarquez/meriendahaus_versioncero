@@ -93,7 +93,43 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const legalContent = {
-        impressum: `<h2>Impressum</h2><p><strong>Merienda Haus</strong><br>Apostel-Paulus-Straße 4<br>10823 Berlin</p><p>Inhaber: Domenika Warmuth</p><p>USt-IdNr.: [Number]</p>`,
+        impressum: `
+            <h2>IMPRESSUM</h2>
+            <div class="legal-scroll-content">
+                <p><strong>Merienda Haus</strong><br>
+                Inhaber: Paolo Zagami<br>
+                Apostel-Paulus-Straße 4<br>
+                10823 Berlin<br>
+                Deutschland</p>
+                
+                <p><strong>E-Mail:</strong> <a href="mailto:hola@meriendahaus.com">hola@meriendahaus.com</a><br>
+                <strong>Tel.:</strong> +49 163 1593783</p>
+                
+                <p><strong>USt-IdNr.:</strong> DE311996944</p>
+                
+                <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+                Paolo Zagami, Anschrift wie oben</p>
+                
+                <p>Dieses Impressum gilt auch für die Website www.meriendahaus.com sowie für den Instagram-Auftritt @meriendahaus.</p>
+                
+                <hr>
+                
+                <h3>Verbraucherstreitbeilegung (§ 36 VSBG)</h3>
+                <p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+                
+                <h3>Haftung für Inhalte</h3>
+                <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Inhalte umgehend.</p>
+                
+                <h3>Haftung für Links</h3>
+                <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.</p>
+                
+                <h3>Urheberrecht</h3>
+                <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung und Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+                
+                <h3>Widerspruch gegen Werbe-E-Mails</h3>
+                <p>Der Nutzung der im Impressum veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung wird hiermit widersprochen.</p>
+            </div>
+        `,
         privacy: `<h2>Privacy Policy</h2><p>Data collected is used exclusively for B2B responses.</p>`
     };
 
@@ -184,13 +220,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { document.getElementById('weather-text').textContent = 'Berlin: 18°C'; }
     }
 
-    // 5. Instagram Reel Logic (Video is handled by HTML autoplay/loop)
-    const reel = document.getElementById('ig-reel');
-    if (reel) {
-        reel.addEventListener('loadeddata', () => {
-            reel.play().catch(e => console.log("Auto-play prevented, waiting for interaction."));
-        });
-    }
+    // 5. Instagram stories loop
+    const stories = document.querySelectorAll('.story-item');
+    const bars = document.querySelectorAll('.bar');
+    // Video is handled by HTML autoplay/loop
 
     // 6. Bestseller Slider Loop
     let currentSlide = 0;
