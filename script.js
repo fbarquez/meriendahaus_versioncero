@@ -130,7 +130,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Der Nutzung der im Impressum veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung wird hiermit widersprochen.</p>
             </div>
         `,
-        privacy: `<h2>Privacy Policy</h2><p>Data collected is used exclusively for B2B responses.</p>`
+        privacy: `
+            <h2>Datenschutzerklärung</h2>
+            <div class="legal-scroll-content">
+                <p>Wir nehmen den Schutz Ihrer personenbezogenen Daten sehr ernst. Wir verarbeiten personenbezogene Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO) sowie dem Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p>
+
+                <h3>1. Verantwortlicher</h3>
+                <p><strong>Merienda Haus</strong><br>
+                Inhaber: Paolo Zagami<br>
+                Apostel-Paulus-Straße 4, 10823 Berlin, Deutschland<br>
+                E-Mail: hola@meriendahaus.com<br>
+                Telefon: +49 163 1593783</p>
+
+                <h3>2. Datenverarbeitung beim Besuch unserer Website</h3>
+                <p><strong>a) Technische Bereitstellung / Server-Logfiles</strong><br>
+                Beim Aufruf unserer Website werden durch den Webserver automatisch Informationen verarbeitet, die Ihr Browser übermittelt (IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Referrer-URL, Browsertyp).<br>
+                Zweck: Auslieferung der Website sowie Gewährleistung von Stabilität und Sicherheit.<br>
+                Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+                <p><strong>b) Cookies</strong><br>
+                Wir verwenden keine Analyse- oder Marketing-Cookies. Soweit technisch notwendige Cookies eingesetzt werden, erfolgt dies auf Grundlage von § 25 Abs. 2 TDDDG sowie Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+                <h3>3. Keine Bestellungen über unsere Website / Weiterleitung zu Wolt</h3>
+                <p>Auf unserer Website werden derzeit keine Bestellungen entgegengenommen. Wenn Sie Produkte über Wolt bestellen, erfolgt die Verarbeitung Ihrer Daten nach den Datenschutzbestimmungen von Wolt. Unsere Website enthält hierzu lediglich einen Link.</p>
+
+                <h3>4. Zahlungen im Ladengeschäft (SumUp)</h3>
+                <p>Wenn Sie bei uns im Ladengeschäft bargeldlos bezahlen, werden Zahlungsdaten zur Abwicklung an den Zahlungsdienstleister SumUp übermittelt.<br>
+                Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Zahlungsabwicklung).</p>
+
+                <h3>5. Kontaktaufnahme</h3>
+                <p>Wenn Sie uns per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung der Anfrage.<br>
+                Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+                <h3>6. Social Media: Instagram</h3>
+                <p>Wir betreiben eine Onlinepräsenz auf Instagram (Meta Platforms Ireland Limited). Weitere Informationen finden Sie in den Datenschutzinformationen von Instagram/Meta.</p>
+
+                <h3>7. Ihre Rechte</h3>
+                <p>Sie haben Rechte auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO), Widerspruch (Art. 21 DSGVO) und Widerruf (Art. 7 Abs. 3 DSGVO).<br>
+                Zudem besteht ein Beschwerderecht bei der Aufsichtsbehörde (Berliner Beauftragte für Datenschutz).</p>
+
+                <h3>8. Stand dieser Datenschutzerklärung</h3>
+                <p>03.03.2026</p>
+            </div>
+        `
     };
 
     function updateLanguage(lang) {
@@ -220,12 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { document.getElementById('weather-text').textContent = 'Berlin: 18°C'; }
     }
 
-    // 5. Instagram stories loop
-    const stories = document.querySelectorAll('.story-item');
-    const bars = document.querySelectorAll('.bar');
-    // Video is handled by HTML autoplay/loop
-
-    // 6. Bestseller Slider Loop
+    // 5. Bestseller Slider Loop
     let currentSlide = 0;
     const slides = document.querySelectorAll('.product-slide');
     if (slides.length > 0) {
@@ -236,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // 7. Language Switcher (Inside Menu)
+    // 6. Language Switcher (Inside Menu)
     const langSpans = document.querySelectorAll('.lang-switcher-menu span');
     langSpans.forEach(span => {
         span.onclick = () => {
