@@ -199,9 +199,84 @@
             </div>
             <button class="add-btn">+</button>
         </div>
+
+        <!-- TikTok Trigger Cell (Small) -->
+        <div class="bento-cell tiktok-trigger-cell" id="tiktok-trigger">
+            <div class="tiktok-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.09-1.47-.88-.64-1.61-1.47-2.12-2.44v10.12c0 2.11-.6 4.31-2.23 5.75-1.5 1.33-3.62 1.83-5.57 1.44-2.02-.38-3.87-1.85-4.75-3.67-.93-1.89-.86-4.31.28-6.07 1.1-1.74 3.13-2.86 5.17-2.73.1 1.33.02 2.66.02 3.99-1.21-.08-2.49.33-3.29 1.25-.85 1-1.02 2.45-.44 3.59.54 1.12 1.78 1.91 3 1.94 1.17.06 2.37-.47 2.94-1.51.4-.73.54-1.58.54-2.41V0l.05.02z"/></svg>
+            </div>
+            <div class="tiktok-content">
+                <h4 data-t="tiktok_title">Community</h4>
+                <p data-t="tiktok_subtitle">Watch Reviews</p>
+            </div>
+            <div class="tiktok-visual-teaser">
+                <video autoplay muted loop playsinline>
+                    <source src="tiktok.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
     </main>
 
     <!-- 6. Modals Overlay -->
+    <!-- TikTok Slider Modal -->
+    <div class="modal-overlay" id="tiktok-modal">
+        <div class="tiktok-slider-container">
+            <button class="close-tiktok" id="close-tiktok">&times;</button>
+            
+            <div class="tiktok-video-wrapper" id="tiktok-wrapper">
+                <!-- Video 1 -->
+                <div class="tiktok-slide active">
+                    <video loop playsinline>
+                        <source src="tiktok.mp4" type="video/mp4">
+                    </video>
+                    <div class="tiktok-video-info">
+                        <span class="author">@meriendahaus_fan</span>
+                        <p>Best coffee in Berlin! ☕️✨</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="tiktok-slide">
+                    <video loop playsinline>
+                        <source src="tiktok1.mp4" type="video/mp4">
+                    </video>
+                    <div class="tiktok-video-info">
+                        <span class="author">@foodie_berlin</span>
+                        <p>You MUST try these medialunas 🥐🤤</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="tiktok-slide">
+                    <video loop playsinline>
+                        <source src="tiktok3.mp4" type="video/mp4">
+                    </video>
+                    <div class="tiktok-video-info">
+                        <span class="author">@berlin_explorer</span>
+                        <p>Authentic Argentinian vibes in Schöneberg 🇦🇷❤️</p>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="tiktok-slide">
+                    <video loop playsinline>
+                        <source src="Download (2).mp4" type="video/mp4">
+                    </video>
+                    <div class="tiktok-video-info">
+                        <span class="author">@community_love</span>
+                        <p>The perfect spot for a weekend merienda 🍰☕️</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="tiktok-nav prev" id="tiktok-prev">←</button>
+            <button class="tiktok-nav next" id="tiktok-next">→</button>
+            
+            <div class="tiktok-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
     <!-- B2B Modal -->
     <div class="modal-overlay" id="b2b-modal">
         <div class="modal-card b2b-modal-card">

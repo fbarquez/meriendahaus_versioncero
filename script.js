@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tag_favorite: 'Favoritos',
             prod_alfajores: 'Alfajores de Maicena',
             prod_medialunas: 'Medialunas de Manteca',
-            prod_chocotorta: 'Tarta Chocotorta'
+            prod_chocotorta: 'Tarta Chocotorta',
+            tiktok_title: 'Comunidad',
+            tiktok_subtitle: 'Ver Reseñas'
         },
         EN: { 
             hero_title: 'Home away from home.', 
@@ -60,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tag_favorite: 'Favorites',
             prod_alfajores: 'Maicena Alfajores',
             prod_medialunas: 'Butter Medialunas',
-            prod_chocotorta: 'Chocotorta Cake'
+            prod_chocotorta: 'Chocotorta Cake',
+            tiktok_title: 'Community',
+            tiktok_subtitle: 'Watch Reviews'
         },
         DE: { 
             hero_title: 'Ein zweites Zuhause.', 
@@ -88,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tag_favorite: 'Favoriten',
             prod_alfajores: 'Maisstärken-Alfajores',
             prod_medialunas: 'Butter-Medialunas',
-            prod_chocotorta: 'Chocotorta-Torte'
+            prod_chocotorta: 'Chocotorta-Torte',
+            tiktok_title: 'Community',
+            tiktok_subtitle: 'Bewertungen'
         }
     };
 
@@ -208,11 +214,70 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Modals Logic
     const b2bModal = document.getElementById('b2b-modal');
     const legalModal = document.getElementById('legal-modal');
+    const tiktokModal = document.getElementById('tiktok-modal');
     const legalContentContainer = document.getElementById('legal-content-container');
 
     document.getElementById('b2b-trigger').addEventListener('click', () => b2bModal.classList.add('is-visible'));
+    document.getElementById('tiktok-trigger').addEventListener('click', () => {
+        tiktokModal.classList.add('is-visible');
+        playTikTokVideo(currentTikTokIndex);
+    });
+
     document.getElementById('close-b2b').addEventListener('click', () => b2bModal.classList.remove('is-visible'));
     document.getElementById('close-legal').addEventListener('click', () => legalModal.classList.remove('is-visible'));
+    document.getElementById('close-tiktok').addEventListener('click', () => {
+        tiktokModal.classList.remove('is-visible');
+        pauseAllTikTokVideos();
+    });
+
+    // TikTok Slider Logic
+    let currentTikTokIndex = 0;
+    const tiktokSlides = document.querySelectorAll('.tiktok-slide');
+    const tiktokWrapper = document.getElementById('tiktok-wrapper');
+    const tiktokDots = document.querySelectorAll('.tiktok-dots .dot');
+
+    function updateTikTokSlider() {
+        tiktokWrapper.style.transform = `translateX(-${currentTikTokIndex * 100}%)`;
+        tiktokSlides.forEach((slide, index) => {
+            if (index === currentTikTokIndex) {
+                slide.classList.add('active');
+                playTikTokVideo(index);
+            } else {
+                slide.classList.remove('active');
+                pauseTikTokVideo(index);
+            }
+        });
+        tiktokDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentTikTokIndex);
+        });
+    }
+
+    function playTikTokVideo(index) {
+        const video = tiktokSlides[index].querySelector('video');
+        if (video) video.play();
+    }
+
+    function pauseTikTokVideo(index) {
+        const video = tiktokSlides[index].querySelector('video');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }
+
+    function pauseAllTikTokVideos() {
+        tiktokSlides.forEach((_, index) => pauseTikTokVideo(index));
+    }
+
+    document.getElementById('tiktok-next').addEventListener('click', () => {
+        currentTikTokIndex = (currentTikTokIndex + 1) % tiktokSlides.length;
+        updateTikTokSlider();
+    });
+
+    document.getElementById('tiktok-prev').addEventListener('click', () => {
+        currentTikTokIndex = (currentTikTokIndex - 1 + tiktokSlides.length) % tiktokSlides.length;
+        updateTikTokSlider();
+    });
 
     document.querySelectorAll('.legal-trigger').forEach(btn => {
         btn.addEventListener('click', () => {
